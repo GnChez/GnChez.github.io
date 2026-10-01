@@ -4,177 +4,173 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" id="meta-description" content="" />
-    <title id="page-title">Joan Guerrero Sanchez · Portfolio</title>
+    <title id="page-title">Joan Guerrero Sánchez · Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <!-- Animated background -->
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+  <body data-profile="backend">
+    <!-- Top bar -->
+    <header class="topbar" id="topbar">
+      <a href="#top" class="brand">
+        <span class="seal seal--small" aria-hidden="true">JG</span>
+        <span class="brand__name">Joan Guerrero</span>
+      </a>
 
-    <!-- Header / Nav -->
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#hero" class="brand">
-          <span class="brand__mark">JG</span>
-          <span class="brand__name">Joan Guerrero</span>
-        </a>
-
+      <nav class="nav" aria-label="Main">
         <ul class="nav__links" id="nav-links">
           <li><a href="#about" data-i18n="nav.about"></a></li>
-          <li><a href="#skills" data-i18n="nav.skills"></a></li>
+          <li><a href="#work" data-i18n="nav.work"></a></li>
           <li><a href="#projects" data-i18n="nav.projects"></a></li>
           <li><a href="#experience" data-i18n="nav.experience"></a></li>
-          <li><a href="#education" data-i18n="nav.education"></a></li>
           <li><a href="#contact" data-i18n="nav.contact"></a></li>
         </ul>
-
-        <div class="nav__actions">
-          <div class="lang-switch" role="group" aria-label="Language switch">
-            <button class="lang-switch__btn" data-lang="es" type="button">ES</button>
-            <button class="lang-switch__btn" data-lang="en" type="button">EN</button>
-          </div>
-          <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
       </nav>
+
+      <div class="topbar__actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-switch__btn" data-lang="es" type="button">ES</button>
+          <button class="lang-switch__btn" data-lang="en" type="button">EN</button>
+        </div>
+        <button class="nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="visually-hidden" data-i18n="nav.menu"></span>
+          <span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
     </header>
 
     <main>
       <!-- Hero -->
-      <section class="hero" id="hero">
-        <div class="container hero__layout">
-          <div class="hero__inner">
-            <p class="hero__role" data-i18n="hero.role"></p>
+      <section class="hero" id="top">
+        <div class="wrap hero__layout">
+          <div class="hero__text">
+            <div class="profile-switch" role="group" aria-labelledby="profile-switch-label">
+              <span class="profile-switch__label" id="profile-switch-label" data-i18n="profileSwitch.label"></span>
+              <div class="profile-switch__options">
+                <button class="profile-switch__btn" data-profile="backend" type="button" data-i18n="profileSwitch.backend"></button>
+                <button class="profile-switch__btn" data-profile="ai" type="button" data-i18n="profileSwitch.ai"></button>
+              </div>
+            </div>
+
             <h1 class="hero__name" data-i18n="hero.name"></h1>
-            <p class="hero__tagline" data-i18n="hero.tagline"></p>
-            <p class="hero__location">
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
-                />
-              </svg>
-              <span data-i18n="hero.location"></span>
-            </p>
+            <p class="hero__role" data-i18n="hero.role"></p>
+            <svg class="brush" viewBox="0 0 320 24" aria-hidden="true" preserveAspectRatio="none">
+              <path d="M4 16 C 60 6, 120 20, 180 11 S 280 8, 316 12" />
+            </svg>
+            <p class="hero__lede" data-i18n="hero.tagline"></p>
+            <p class="hero__location" data-i18n="hero.location"></p>
+
             <div class="hero__cta">
-              <a href="#projects" class="btn btn--primary" data-i18n="hero.ctaProjects"></a>
-              <a href="#contact" class="btn btn--ghost" data-i18n="hero.ctaContact"></a>
-              <a
-                href="cv/CV_Joan_Guerrero_ES.pdf"
-                class="btn btn--outline"
-                id="resume-download-hero"
-                download="Joan_Guerrero_CV_ES.pdf"
-              >
-                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                  <path
-                    fill="currentColor"
-                    d="M12 16l-5-5h3V4h4v7h3l-5 5Zm-7 2h14v2H5v-2Z"
-                  />
-                </svg>
+              <a class="btn" id="hero-cv" href="#" download>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5Zm-7 2h14v2H5v-2Z" /></svg>
                 <span data-i18n="hero.ctaDownload"></span>
               </a>
+              <a class="btn btn--ghost" href="#projects" data-i18n="hero.ctaProjects"></a>
             </div>
           </div>
 
-          <figure class="hero__photo profile-photo" id="profile-photo">
-            <img
-              id="profile-photo-img"
-              class="profile-photo__img is-hidden"
-              alt=""
-              width="320"
-              height="320"
-              decoding="async"
-            />
-            <div class="profile-photo__fallback" id="profile-photo-fallback">
-              <span class="profile-photo__initials" id="profile-photo-initials">JG</span>
-            </div>
-          </figure>
+          <div class="hero__glyphs" aria-hidden="true">
+            <span data-el="water">水</span>
+            <span data-el="earth">土</span>
+            <span data-el="fire">火</span>
+            <span data-el="air">氣</span>
+          </div>
         </div>
       </section>
 
       <!-- About -->
       <section class="section" id="about">
-        <div class="container">
-          <h2 class="section__title" data-i18n="about.title"></h2>
-          <div class="about">
-            <div class="about__main">
-              <p class="about__body" data-i18n="about.body"></p>
-              <div class="resume-downloads reveal" id="resume-downloads">
-                <h3 class="resume-downloads__title" data-i18n="resume.title"></h3>
-                <p class="resume-downloads__subtitle" data-i18n="resume.subtitle"></p>
-                <div class="resume-downloads__actions" id="resume-downloads-actions"></div>
-              </div>
-            </div>
-            <div class="about__stats" id="about-stats"></div>
+        <div class="wrap about">
+          <div class="about__main">
+            <p class="eyebrow" data-i18n="nav.about"></p>
+            <h2 class="section__title" data-i18n="about.title"></h2>
+            <p class="about__body" data-i18n="about.body"></p>
+            <dl class="stats" id="about-stats"></dl>
           </div>
+          <aside class="about__side">
+            <div class="side-block">
+              <h3 class="side-block__title" data-i18n="resume.title"></h3>
+              <p class="side-block__sub" data-i18n="resume.subtitle"></p>
+              <div class="cv-links" id="cv-links"></div>
+            </div>
+            <div class="side-block">
+              <h3 class="side-block__title" data-i18n="languages.title"></h3>
+              <ul class="langs" id="languages-list"></ul>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <!-- Skills -->
-      <section class="section" id="skills">
-        <div class="container">
-          <h2 class="section__title" data-i18n="skills.title"></h2>
-          <p class="section__subtitle" data-i18n="skills.subtitle"></p>
-          <div class="skills" id="skills-grid"></div>
+      <!-- How I work -->
+      <section class="section section--tinted" id="work">
+        <div class="wrap">
+          <header class="section__head">
+            <p class="eyebrow" data-i18n="elements.eyebrow"></p>
+            <h2 class="section__title" data-i18n="elements.title"></h2>
+            <p class="section__sub" data-i18n="elements.sub"></p>
+          </header>
+          <ol class="elements" id="elements-list"></ol>
+
+          <div class="toolkit">
+            <h3 class="toolkit__title" data-i18n="skills.title"></h3>
+            <div class="toolkit__grid" id="skills-grid"></div>
+          </div>
         </div>
       </section>
 
       <!-- Projects -->
       <section class="section" id="projects">
-        <div class="container">
-          <h2 class="section__title" data-i18n="projects.title"></h2>
-          <p class="section__subtitle" data-i18n="projects.subtitle"></p>
-          <div class="projects" id="projects-grid"></div>
+        <div class="wrap">
+          <header class="section__head">
+            <p class="eyebrow" data-i18n="nav.projects"></p>
+            <h2 class="section__title" data-i18n="projects.title"></h2>
+            <p class="section__sub" data-i18n="projects.subtitle"></p>
+          </header>
+          <ol class="projects" id="projects-list"></ol>
         </div>
       </section>
 
-      <!-- Experience -->
-      <section class="section" id="experience">
-        <div class="container">
-          <h2 class="section__title" data-i18n="experience.title"></h2>
-          <div class="timeline" id="experience-timeline"></div>
+      <!-- Experience + education -->
+      <section class="section section--tinted" id="experience">
+        <div class="wrap">
+          <header class="section__head">
+            <p class="eyebrow" data-i18n="experience.eyebrow"></p>
+            <h2 class="section__title" data-i18n="experience.title"></h2>
+          </header>
+          <ol class="path" id="experience-list"></ol>
+
+          <h3 class="path__subtitle" data-i18n="education.title"></h3>
+          <ol class="path path--compact" id="education-list"></ol>
         </div>
       </section>
 
-      <!-- Education + Languages -->
-      <section class="section" id="education">
-        <div class="container education-wrap">
-          <div class="education-col">
-            <h2 class="section__title" data-i18n="education.title"></h2>
-            <div class="timeline" id="education-timeline"></div>
-          </div>
-          <div class="languages-col">
-            <h2 class="section__title" data-i18n="languages.title"></h2>
-            <div class="languages" id="languages-list"></div>
-          </div>
+      <!-- Teahouse -->
+      <section class="section" id="tea">
+        <div class="wrap tea">
+          <p class="eyebrow" data-i18n="tea.eyebrow"></p>
+          <blockquote class="tea__quote" id="tea-quote" aria-live="polite"></blockquote>
+          <button class="link-btn" id="tea-btn" type="button" data-i18n="tea.button"></button>
         </div>
       </section>
 
       <!-- Contact -->
-      <section class="section section--contact" id="contact">
-        <div class="container">
+      <section class="section contact" id="contact">
+        <div class="wrap">
+          <p class="eyebrow" data-i18n="nav.contact"></p>
           <h2 class="section__title" data-i18n="contact.title"></h2>
-          <p class="section__subtitle" data-i18n="contact.subtitle"></p>
-          <div class="contact" id="contact-grid"></div>
+          <p class="section__sub" data-i18n="contact.subtitle"></p>
+          <ul class="contact__list" id="contact-list"></ul>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container footer__inner">
-        <span class="brand__mark">JG</span>
-        <p data-i18n="footer.built"></p>
-        <span class="footer__year" id="footer-year"></span>
-      </div>
+      <span class="seal seal--small" aria-hidden="true">JG</span>
+      <p><span data-i18n="footer.built"></span> · <span id="footer-year"></span></p>
     </footer>
 
     <script src="translations.js"></script>
